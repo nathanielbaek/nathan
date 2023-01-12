@@ -1,0 +1,29 @@
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig 
+metadata: 
+    name: pjtc-dev-eks-cluster1
+    region: ap-northeast-2 
+vpc:
+  subnets:
+    private:
+      ap-northeast-2b: { id: subnet-09e571b5451d8c138 }
+      ap-northeast-2c: { id: subnet-0171166ffd477395a }
+      ap-northeast-2a: { id: subnet-0ebcc614006f875bf }
+      ap-northeast-2d: { id: subnet-036503f3637909f36 } 
+iam: 
+    serviceRoleARN: "arn:aws:iam::364650154543:role/eksClusterRole"
+managedNodeGroups: 
+    - name: pjtc-dev-eks-node-1
+      instanceType: t2.medium 
+      instanceName: pjtc-dev-workernode-1
+      minSize: 2
+      desiredCapacity: 2
+      maxSize: 4
+      availabilityZones: ["ap-northeast-2a", "ap-northeast-2b", "ap-northeast-2c", "ap-northeast-2d"] 
+      volumeSize: 20 
+      privateNetworking: true 
+      ssh: 
+        allow: false
+      labels: {role: worker} 
+      iam:
+        instanceRoleARN: "arn:aws:iam::364650154543:role/AmazonEKSNodeRole"

@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pjtc-dev-api-deployment
+  namespace: pjtc-dev
+  labels:
+    app: pjtc-dev-member-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pjtc-dev-member-api
+  template:
+    metadata:
+      labels:
+        app: pjtc-dev-member-api
+    spec:
+      containers:
+      - name: member-api
+        image: 364650154543.dkr.ecr.ap-northeast-2.amazonaws.com/member-api:16
+        ports:
+        - name: tcp
+          containerPort: 8080
