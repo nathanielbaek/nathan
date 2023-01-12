@@ -11,7 +11,7 @@ data:
       "logs": {
         "metrics_collected": {
           "kubernetes": {
-            "cluster_name": "pjtc-dev-api-deployment",
+            "cluster_name": "dev-api-deployment",
             "metrics_collection_interval": 60
           }
         },

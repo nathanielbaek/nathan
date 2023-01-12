@@ -21,7 +21,7 @@
         {
             "Effect": "Allow",
             "Action": "ssm:GetParameter",
-            "Resource": "arn:aws:ssm:*:364650154543:parameter/*"
+            "Resource": "arn:aws:ssm:*:-:parameter/*"
         }
     ]
-}  
+}
