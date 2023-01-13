@@ -1,5 +1,5 @@
-resource "aws_db_instance" "pjtc-dev-db-1-instance-1" {
-    identifier                = "pjtc-dev-db-1-instance-1"
+resource "aws_db_instance" "dev-db-1-instance-1" {
+    identifier                = "dev-db-1-instance-1"
     allocated_storage         = 1
     storage_type              = "aurora"
     engine                    = "aurora-mysql"
@@ -19,7 +19,7 @@ resource "aws_db_instance" "pjtc-dev-db-1-instance-1" {
     backup_retention_period   = 1
     backup_window             = "20:11-20:41"
     maintenance_window        = "wed:14:34-wed:15:04"
-    final_snapshot_identifier = "pjtc-dev-db-1-instance-1-final"
+    final_snapshot_identifier = "dev-db-1-instance-1-final"
 }
 resource "aws_db_instance" "test-instance-2" {
     identifier                = "test-instance-2"

@@ -11,7 +11,7 @@ vpc:
       ap-northeast-2a: { id: subnet-0ebcc614006f875bf }
       ap-northeast-2d: { id: subnet-036503f3637909f36 }
 iam:
-    serviceRoleARN: "arn:aws:iam::364650154543:role/eksClusterRole"
+    serviceRoleARN: "arn:aws:iam::-:role/eksClusterRole"
 managedNodeGroups:
     - name: dev-eks-node-1
       instanceType: t2.medium
