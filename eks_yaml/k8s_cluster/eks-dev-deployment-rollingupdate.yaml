@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dev-api-gateway
+  namespace: dev
+  labels:
+    app: dev-user-gateway
+spec:
+  replicas: 1
+  minReadySeconds: 1
+  strategy:
+    type: "RollingUpdate"
+    rollingUpdate:
+     maxSurge: 1
+       #maxUnavaliable: 0
+  selector:
+    matchLabels:
+      app: dev-user-gateway
+  template:
+    metadata:
+      labels:
+        app: dev-user-gateway
+    spec:
+      containers:
+      - name: user-gateway
+        image: -.dkr.ecr.ap-northeast-2.amazonaws.com/user-gateway:latest
+        ports:
+        - name: tcp
+          containerPort: 3000
+            #terminationGracePeriodSeconds: 60
