@@ -1,8 +1,8 @@
 #!/bin/bash
 
-newconfigpath="/home/scripts/env_deploy/new"
+newconfigpath="/home/scripts/env_deploy"
 puppetpath="/etc/puppet/environments"
-envlist=`cat /home/scripts/env_deploy/envlist`
+envlist=`cat ./envlist`
 
 for i in $envlist
     do
