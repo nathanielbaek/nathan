@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: dev-api-deployment
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
       app: dev-api
@@ -14,6 +14,6 @@ spec:
     spec:     # pod spec
       containers:
       - name: dev-api
-        image: 364650154543.dkr.ecr.ap-northeast-2.amazonaws.com/member-api:11
+        image: -.dkr.ecr.ap-northeast-2.amazonaws.com/member-api:11
         ports:
         - containerPort: 8080
