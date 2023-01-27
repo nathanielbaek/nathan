@@ -13,4 +13,4 @@ do
   printf "%s : %s \n" $TM $COUNT
   let COUNT=COUNT+1
   sleep $INTERVAL
-DONE
+done 
