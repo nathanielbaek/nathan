@@ -1,0 +1,21 @@
+git clone https://$GIT_USER_NAME:$GIT_USER_PASSWORD@bitbucket.org/applink/kubernetes-manifest.git && cd kubernetes-manifest
+
+git config --global user.email $GIT_USER_EMAIL; git config --global user.name $GIT_USER_NAME ; git config --global push.default matching
+
+git fetch && git checkout dev
+
+sed -i 's/tag:.*/tag:'' '$BITBUCKET_COMMIT_SHORT'/g'
+
+$CONTAINER_APP_NAME/qa.values.yaml
+
+if [ -z "$(git status --porcelain)" ];
+
+ then
+
+ echo "nothing to commit, working directory clean";
+
+ else
+
+ git commit -am "https://bitbucket.org/"$BITBUCKET_COMMIT_LINK && git push;
+
+fi
