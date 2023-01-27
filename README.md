@@ -1,16 +1,16 @@
 # 기본 출력을 위한 Get 커맨드
 
-kubectl get services                          # 네임스페이스 내 모든 서비스의 목록 조회
+kubectl get services # 네임스페이스 내 모든 서비스의 목록 조회
 
-kubectl get pods --all-namespaces             # 모든 네임스페이스 내 모든 파드의 목록 조회
+kubectl get pods --all-namespaces # 모든 네임스페이스 내 모든 파드의 목록 조회
 
-kubectl get pods -o wide                      # 해당하는 네임스페이스 내 모든 파드의 상세 목록 조회
+kubectl get pods -o wide # 해당하는 네임스페이스 내 모든 파드의 상세 목록 조회
 
-kubectl get deployment my-dep                 # 특정 디플로이먼트의 목록 조회
+kubectl get deployment my-dep # 특정 디플로이먼트의 목록 조회
 
-kubectl get pods                              # 네임스페이스 내 모든 파드의 목록 조회
+kubectl get pods  # 네임스페이스 내 모든 파드의 목록 조회
 
-kubectl get pod my-pod -o yaml                # 파드의 YAML 조회
+kubectl get pod my-pod -o yaml  # 파드의 YAML 조회
 
 
 
@@ -78,8 +78,6 @@ kubectl get nodes -o jsonpath='{.items[*].status.addresses[?(@.type=="ExternalIP
 
 # 특정 RC에 속해있는 파드 이름의 목록 조회
 
-# "jq" 커맨드는 jsonpath를 사용하는 매우 복잡한 변환에 유용하다. https://stedolan.github.io/jq/ 에서 확인할 수 있다.
-
 sel=${$(kubectl get rc my-rc --output=json | jq -j '.spec.selector | to_entries | .[] | "\(.key)=\(.value),"')%?}
 
 echo $(kubectl get pods --selector=$sel --output=jsonpath={.items..metadata.name})
@@ -113,8 +111,6 @@ kubectl get pods -o json | jq '.items[].spec.containers[].env[]?.valueFrom.secre
 
 
 # 모든 파드의 초기화 컨테이너(initContainer)의 컨테이너ID 목록 조회
-
-# 초기화 컨테이너(initContainer)를 제거하지 않고 정지된 모든 컨테이너를 정리할 때 유용하다.
 
 kubectl get pods --all-namespaces -o jsonpath='{range .items[*].status.initContainerStatuses[*]}{.containerID}{"\n"}{end}' | cut -d/ -f3
 
