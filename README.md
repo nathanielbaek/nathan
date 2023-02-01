@@ -1,3 +1,6 @@
+
+K8S Command Guide
+
 # 기본 출력을 위한 Get 커맨드
 
 kubectl get services # 네임스페이스 내 모든 서비스의 목록 조회
