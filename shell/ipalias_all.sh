@@ -2,7 +2,7 @@
 
 # Modify ohbaek
 # IP alias start/stop script
-# Check NIC Device name before to run
+# Check NIC device name before to run
 
 DEVICE=eno1
 AGENTS="/sbin/ifconfig"
