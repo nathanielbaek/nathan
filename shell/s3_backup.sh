@@ -1,3 +1,6 @@
+
+# ohbaek
+
 #!/bin/bash
 date=`date +%Y-%m-%d`
 file=`/data/backup/"$date".tar.gz`
